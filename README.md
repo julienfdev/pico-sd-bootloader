@@ -60,7 +60,15 @@ It is linked using a custom linker script that offsets the flash region by 128KB
 
 ### Building and Flashing the Bootloader
 
-1. **Build the Bootloader**
+
+1. **Configuring the bootloader code**
+
+   Please adjust the lib/sd/hw_config.c as you see fit (it should be properly configured for you, if you follow the "Wiring the hardware" paragraph).
+   
+   Decide on whether or not you want to comment out the DEBUG_STDIO_DELAY variable. When defined, it gives you a 5 second delay to connect to the USB 
+   Serial Monitor before flashing the firmware or starting the application.
+
+3. **Build the Bootloader**
 
    ```bash
    cd bootloader
@@ -70,7 +78,7 @@ It is linked using a custom linker script that offsets the flash region by 128KB
    make
    ```
 
-2. **Flash the Bootloader to the Pico**
+4. **Flash the Bootloader to the Pico**
 
    - Connect the Pico to your computer while holding the **BOOTSEL** button to enter USB mass storage mode.
    - Copy the generated `bootloader.uf2` file from the `bootloader/build` directory to the Pico's storage.
@@ -108,7 +116,11 @@ Connect the SD card module to the Raspberry Pi Pico as follows:
 | MISO           | GPIO 4 (Pin 6)    | NC                       |
 | CS             | NC                | GND                      |
 
-**Placeholder for the photo of the wiring on a breadboard**
+You can add a switch on BOOTLOAD_PIN (14 by default) to force the bootloader into upload mode, even if a valid application is detected.
+
+![IMG_2788](https://github.com/user-attachments/assets/f4f98b05-5b99-40da-ad80-ee10398b4232)
+
+NB: while i'm using a Pico W with external LEDs connected, the project is configured for a classic Pi Pico blinking the inboard LED, you don't need the two top grey wires, resistors and LEDs
 
 ### Running the Application
 
