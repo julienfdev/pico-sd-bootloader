@@ -1,9 +1,9 @@
 /*
  * Julien Ferand - 2024
  */
-
-#define LED_PIN 17
 #include <pico/stdlib.h>
+
+#define LED_PIN 25
 
 int main()
 {
