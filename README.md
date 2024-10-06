@@ -101,7 +101,7 @@ It is linked using a custom linker script that offsets the flash region by 128KB
 
 3. **Copy to SD Card**
 
-   - Copy `app.bin` to the root directory of your FAT32-formatted SD card.
+   - Copy `firmware.bin` to the root directory of your FAT32-formatted SD card.
 
 ### Wiring the Hardware
 
